@@ -1,19 +1,21 @@
 <script>
+  import user1 from "../assets/img/user1.png"
+  import user2 from "../assets/img/user2.png"
+  import user3 from "../assets/img/user3.png"
+
   let users = [
     {
-      image: "https://cdn-icons-png.flaticon.com/128/3135/3135715.png",
+      image: user1,
       name: "John",
       email: "john@bitfumes.com",
     },
     {
-      image:
-        "https://cdn-icons.flaticon.com/png/128/706/premium/706807.png?token=exp=1657639948~hmac=2a867069d486825adc49f9752090597c",
+      image: user2,
       name: "Jeni",
       email: "jenie@bitfumes.com",
     },
     {
-      image:
-        "https://cdn-icons.flaticon.com/png/128/924/premium/924915.png?token=exp=1657639948~hmac=e807472a9f41cbe68e74df75bee68207",
+      image: user3,
       name: "Hacker",
       email: "hacker@bitfumes.com",
     },
