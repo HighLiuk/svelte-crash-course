@@ -25,27 +25,13 @@
 <div>
   <h1>List of Users</h1>
 
-  <div>
-    <img src={users[0].image} alt={users[0].name} />
+  {#each users as user}
+    <div>
+      <img src={user.image} alt={user.name} />
 
-    <p>{users[0].name}</p>
+      <p>{user.name}</p>
 
-    <p>{users[0].email}</p>
-  </div>
-
-  <div>
-    <img src={users[1].image} alt={users[1].name} />
-
-    <p>{users[1].name}</p>
-
-    <p>{users[1].email}</p>
-  </div>
-
-  <div>
-    <img src={users[2].image} alt={users[2].name} />
-
-    <p>{users[2].name}</p>
-
-    <p>{users[2].email}</p>
-  </div>
+      <p>{user.email}</p>
+    </div>
+  {/each}
 </div>
