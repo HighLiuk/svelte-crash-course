@@ -3,7 +3,7 @@
   import user2 from "../assets/img/user2.png"
   import user3 from "../assets/img/user3.png"
 
-  let users = [
+  const getUsers = () => [
     {
       id: 1,
       image: user1,
@@ -28,7 +28,7 @@
 <div>
   <h1>List of Users</h1>
 
-  {#each users as { name, email, image, id }, i (id)}
+  {#each getUsers() as { name, email, image, id }, i (id)}
     <div>
       <p>{i + 1}</p>
 
@@ -38,5 +38,7 @@
 
       <p>{email}</p>
     </div>
+  {:else}
+    <p>No users found</p>
   {/each}
 </div>
