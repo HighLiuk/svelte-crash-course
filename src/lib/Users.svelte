@@ -2,6 +2,7 @@
   import user1 from "../assets/img/user1.png"
   import user2 from "../assets/img/user2.png"
   import user3 from "../assets/img/user3.png"
+  import FilterUser from "./FilterUser.svelte"
   import User from "./User.svelte"
 
   const users = [
@@ -30,16 +31,14 @@
 
   let filteredUsers = users
 
-  const filter = (e) => {
-    const status = e.target.value
-
-    if (status === "all") {
+  const filter = ({ detail }) => {
+    if (detail === "all") {
       filteredUsers = users
       return
     }
 
     filteredUsers = users.filter(
-      (user) => user.active === (status === "active")
+      (user) => user.active === (detail === "active")
     )
   }
 </script>
@@ -47,20 +46,7 @@
 <div>
   <h1 class="text-2xl text-center mt-10">List of Users</h1>
 
-  <div class="ml-4 mt-4">
-    <label for="user-filter">Filter User</label>
-
-    <select
-      on:change={filter}
-      class="ml-4 py-2 px-4 border rounded-lg cursor-pointer"
-      name="user-filter"
-      id="user-filter"
-    >
-      <option value="all">All</option>
-      <option value="active">Active</option>
-      <option value="inactive">Inactive</option>
-    </select>
-  </div>
+  <FilterUser on:filter={filter} />
 
   {#each filteredUsers as user, i (user.id)}
     <User {user} {i} />
