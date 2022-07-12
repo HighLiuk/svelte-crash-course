@@ -5,16 +5,19 @@
 
   let users = [
     {
+      id: 1,
       image: user1,
       name: "John",
       email: "john@bitfumes.com",
     },
     {
+      id: 2,
       image: user2,
       name: "Jeni",
       email: "jenie@bitfumes.com",
     },
     {
+      id: 3,
       image: user3,
       name: "Hacker",
       email: "hacker@bitfumes.com",
@@ -25,7 +28,7 @@
 <div>
   <h1>List of Users</h1>
 
-  {#each users as { name, email, image }, i}
+  {#each users as { name, email, image, id }, i (id)}
     <div>
       <p>{i + 1}</p>
 
