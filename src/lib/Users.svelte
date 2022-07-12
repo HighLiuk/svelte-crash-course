@@ -26,17 +26,19 @@
 </script>
 
 <div>
-  <h1>List of Users</h1>
+  <h1 class="text-2xl text-center mt-10">List of Users</h1>
 
   {#each getUsers() as { name, email, image, id }, i (id)}
-    <div>
-      <p>{i + 1}</p>
+    <div
+      class="flex m-5 bg-white border p-2 rounded-lg shadow-md hover:shadow-lg cursor-pointer items-center"
+    >
+      <p class="w-10">{i + 1}</p>
 
-      <img src={image} alt={name} />
+      <img class="rounded-full w-16 h-16 mx-4" src={image} alt={name} />
 
-      <p>{name}</p>
+      <p class="mx-4 w-20">{name}</p>
 
-      <p>{email}</p>
+      <p class="mx-4 w-20">{email}</p>
     </div>
   {:else}
     <p>No users found</p>
