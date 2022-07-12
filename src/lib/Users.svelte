@@ -25,13 +25,15 @@
 <div>
   <h1>List of Users</h1>
 
-  {#each users as user}
+  {#each users as { name, email, image }, i}
     <div>
-      <img src={user.image} alt={user.name} />
+      <p>{i + 1}</p>
 
-      <p>{user.name}</p>
+      <img src={image} alt={name} />
 
-      <p>{user.email}</p>
+      <p>{name}</p>
+
+      <p>{email}</p>
     </div>
   {/each}
 </div>
