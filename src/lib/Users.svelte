@@ -48,7 +48,7 @@
   }
 </script>
 
-<div>
+<div class="container mx-auto">
   <h1 class="text-2xl text-center mt-10">List of Users</h1>
 
   <div class="flex justify-between items-center mx-4">
