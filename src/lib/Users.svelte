@@ -29,7 +29,7 @@
     },
   ]
 
-  let filteredUsers = users
+  $: filteredUsers = users
 
   const filter = ({ detail }) => {
     if (detail === "all") {
