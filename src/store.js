@@ -26,3 +26,21 @@ export const users = writable([
     active: false,
   },
 ])
+
+export const remove = ({ detail }) => {
+  users.update((_users) => {
+    return _users.filter((user) => user.id !== detail)
+  })
+}
+
+export const add = ({ detail }) => {
+  users.update((_users) => {
+    const user = {
+      ...detail,
+      id: _users.length + 1,
+      image: user1,
+    }
+
+    return [..._users, user]
+  })
+}

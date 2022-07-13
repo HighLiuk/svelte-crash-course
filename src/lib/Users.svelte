@@ -1,9 +1,8 @@
 <script>
-  import user1 from "../assets/img/user1.png"
   import FilterUser from "./FilterUser.svelte"
   import NewUser from "./NewUser.svelte"
   import User from "./User.svelte"
-  import { users } from "../store"
+  import { add, remove, users } from "../store"
 
   let status = "all"
 
@@ -13,20 +12,6 @@
       : $users.filter((user) => user.active === (status === "active"))
 
   const filter = ({ detail }) => (status = detail)
-
-  const remove = ({ detail }) => {
-    $users = $users.filter((user) => user.id !== detail)
-  }
-
-  const add = ({ detail }) => {
-    const user = {
-      ...detail,
-      id: $users.length + 1,
-      image: user1,
-    }
-
-    $users = [...$users, user]
-  }
 </script>
 
 <div class="container mx-auto">
