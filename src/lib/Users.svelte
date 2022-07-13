@@ -6,6 +6,7 @@
   import NewUser from "./NewUser.svelte"
   import User from "./User.svelte"
 
+  let status = "all"
   let users = [
     {
       id: 1,
@@ -30,18 +31,12 @@
     },
   ]
 
-  $: filteredUsers = users
+  $: filteredUsers =
+    status === "all"
+      ? users
+      : users.filter((user) => user.active === (status === "active"))
 
-  const filter = ({ detail }) => {
-    if (detail === "all") {
-      filteredUsers = users
-      return
-    }
-
-    filteredUsers = users.filter(
-      (user) => user.active === (detail === "active")
-    )
-  }
+  const filter = ({ detail }) => (status = detail)
 
   const remove = ({ detail }) => {
     users = users.filter((user) => user.id !== detail)
