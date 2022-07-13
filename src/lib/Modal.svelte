@@ -32,6 +32,7 @@
           <div class="flex justify-between">
             <button
               class="px-2 py-1 bg-white border rounded hover:bg-gray-200"
+              type="button"
               on:click={closeModal}>Close</button
             >
 
