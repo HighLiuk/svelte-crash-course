@@ -6,6 +6,8 @@
   import User from "./User.svelte"
   import { add, remove, users } from "../store"
   import { onMount } from "svelte"
+  import { flip } from "svelte/animate"
+  import { fade, fly } from "svelte/transition"
 
   let status = "all"
 
@@ -33,7 +35,13 @@
   <progress class="w-11/12 mx-auto block" min="0" max="10" value={$progress} />
 
   {#each filteredUsers as user, i (user.id)}
-    <User {user} {i} on:remove={remove} />
+    <div
+      animate:flip={{ easing: cubicOut, duration: 1000 }}
+      in:fade={{ easing: cubicOut, duration: 1000 }}
+      out:fly={{ easing: cubicOut, duration: 1000, x: 200 }}
+    >
+      <User {user} {i} on:remove={remove} />
+    </div>
   {:else}
     <p>No users found</p>
   {/each}
