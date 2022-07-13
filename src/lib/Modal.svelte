@@ -6,6 +6,8 @@
   const closeModal = () => dispatch("close")
 
   const submit = () => dispatch("submit")
+
+  export let show
 </script>
 
 <div
@@ -13,6 +15,7 @@
   aria-labelledby="modal-title"
   role="dialog"
   aria-modal="true"
+  style:display={show ? "block" : "none"}
 >
   <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
 
