@@ -1,9 +1,9 @@
 <script>
   import { cubicOut } from "svelte/easing"
   import { tweened } from "svelte/motion"
-  import FilterUser from "./FilterUser.svelte"
-  import NewUser from "./NewUser.svelte"
-  import User from "./User.svelte"
+  import FilterUser from "../lib/FilterUser.svelte"
+  import NewUser from "../lib/NewUser.svelte"
+  import User from "../lib/User.svelte"
   import { add, remove, users } from "../store"
   import { onMount } from "svelte"
   import { flip } from "svelte/animate"
