@@ -5,12 +5,13 @@
   const dispatch = createEventDispatcher()
 
   let showModal = false
-  let user = {}
+  let user = { active: true }
+  $: disabled = !user.name || !user.email
 
   const submit = () => {
     dispatch("newUser", user)
     showModal = false
-    user = {}
+    user = { active: true }
   }
 </script>
 
@@ -85,7 +86,10 @@
 
     <button
       class="px-2 py-1 bg-blue-800 text-white rounded-lg"
+      style:opacity={disabled ? 0.5 : 1}
       slot="right-button"
+      id="submit-button"
+      {disabled}
       type="submit">Create</button
     >
   </Modal>
