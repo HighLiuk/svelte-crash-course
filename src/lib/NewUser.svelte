@@ -1,7 +1,17 @@
 <script>
+  import { createEventDispatcher } from "svelte"
   import Modal from "./Modal.svelte"
 
+  const dispatch = createEventDispatcher()
+
   let showModal = false
+  let user = {}
+
+  const submit = () => {
+    dispatch("newUser", user)
+    showModal = false
+    user = {}
+  }
 </script>
 
 <div>
@@ -11,7 +21,7 @@
   >
 
   {#if showModal}
-    <Modal on:close={() => (showModal = false)}>
+    <Modal on:close={() => (showModal = false)} on:submit={submit}>
       <h1 class="text-2xl text-center">Create new user</h1>
 
       <div class="py-1 px-2 my-4">
@@ -20,6 +30,7 @@
         <input
           type="text"
           id="name"
+          bind:value={user.name}
           class="px-2 py-1 rounded border w-full"
           placeholder="John Doe"
         />
@@ -31,6 +42,7 @@
         <input
           type="email"
           id="email"
+          bind:value={user.email}
           class="px-2 py-1 rounded border w-full"
           placeholder="john.doe@example.org"
         />
@@ -46,6 +58,7 @@
             <input
               type="radio"
               value={true}
+              bind:group={user.active}
               name="active"
               id="true"
               class="px-2 py-1 rounded border w-full mt-0.5"
@@ -58,6 +71,7 @@
             <input
               type="radio"
               value={false}
+              bind:group={user.active}
               name="active"
               id="false"
               class="px-2 py-1 rounded border w-full mt-0.5"
