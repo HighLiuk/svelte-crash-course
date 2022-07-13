@@ -11,7 +11,6 @@
   aria-labelledby="modal-title"
   role="dialog"
   aria-modal="true"
-  on:click={closeModal}
 >
   <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
 
@@ -22,7 +21,12 @@
       <div
         class="relative bg-white rounded-lg px-4 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6"
       >
-        <div class="mt-5 sm:mt-6 text-center">Add something here</div>
+        <div class="mt-5 sm:mt-6 text-center">
+          <button
+            class="px-2 py-1 bg-white border rounded hover:bg-gray-200"
+            on:click={closeModal}>Close</button
+          >
+        </div>
       </div>
     </div>
   </div>
