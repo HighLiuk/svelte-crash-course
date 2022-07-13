@@ -5,7 +5,7 @@
   import FilterUser from "./FilterUser.svelte"
   import User from "./User.svelte"
 
-  const users = [
+  let users = [
     {
       id: 1,
       image: user1,
@@ -41,6 +41,10 @@
       (user) => user.active === (detail === "active")
     )
   }
+
+  const remove = ({ detail }) => {
+    users = users.filter((user) => user.id !== detail)
+  }
 </script>
 
 <div>
@@ -49,7 +53,7 @@
   <FilterUser on:filter={filter} />
 
   {#each filteredUsers as user, i (user.id)}
-    <User {user} {i} />
+    <User {user} {i} on:remove={remove} />
   {:else}
     <p>No users found</p>
   {/each}
