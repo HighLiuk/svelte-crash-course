@@ -3,6 +3,7 @@
   import user2 from "../assets/img/user2.png"
   import user3 from "../assets/img/user3.png"
   import FilterUser from "./FilterUser.svelte"
+  import NewUser from "./NewUser.svelte"
   import User from "./User.svelte"
 
   let users = [
@@ -50,7 +51,11 @@
 <div>
   <h1 class="text-2xl text-center mt-10">List of Users</h1>
 
-  <FilterUser on:filter={filter} />
+  <div class="flex justify-between items-center mx-4">
+    <FilterUser on:filter={filter} />
+
+    <NewUser />
+  </div>
 
   {#each filteredUsers as user, i (user.id)}
     <User {user} {i} on:remove={remove} />

@@ -6,7 +6,7 @@
   const filter = (e) => dispatch("filter", e.target.value)
 </script>
 
-<div class="ml-4 mt-4">
+<div class="my-2">
   <label for="user-filter">Filter User</label>
 
   <select
